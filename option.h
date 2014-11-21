@@ -9,29 +9,29 @@
 using namespace std;
 
 typedef struct {
-	/* mapping parameter */
-	SIZE_T nMaxMismatch;
-	SIZE_T ems; // number of exact mapped seeds
+  /* mapping parameter */
+  SIZE_T nMaxMismatch;
+  SIZE_T ems;  // number of exact mapped seeds
 } MapOpt;
 
 typedef struct {
-	//input and out parameter
-	string readsFile;
-	string refFile;
+  //input and out parameter
+  string readsFile;
+  string refFile;
 
-	SIZE_T nNumOfreads;
-	SIZE_T readLen;
-	SIZE_T nSeed;
-	SIZE_T * seedStartPos;
-	string outputFile;
-	string indexFile;
-	int bSaveIndex; // Default is false
-	int bIndexExist;
+  SIZE_T nNumOfreads;
+  SIZE_T readLen;
+  SIZE_T nSeed;
+  SIZE_T * seedStartPos;
+  string outputFile;
+  string indexFile;
+  int bSaveIndex;  // Default is false
+  int bIndexExist;
 
-	MapOpt mapOpt;
+  MapOpt mapOpt;
 
-	/////////////////////////////////
-	//set<SIZE_T> setConsectiveN;
+  /////////////////////////////////
+  //set<SIZE_T> setConsectiveN;
 } Option;
 
 void PrintSynopsis();

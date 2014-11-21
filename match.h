@@ -8,6 +8,7 @@
 #include "seed.h"
 #include "bandedGlobalAlignment.h"
 
-void Matching(const Option & opt, const CReference * refGenome, const CHashTable * hashTable);
+void Matching(const Option & opt, const CReference * refGenome,
+              const CHashTable * hashTable);
 
 #endif /* MATCHING_H_ */

@@ -24,31 +24,32 @@
 #include "refin.h"
 
 int main(int argc, const char* argv[]) {
-	/* (1) Get parameters */
-	Option opt;
-	GetParameter(argc, argv, opt);
+  /* (1) Get parameters */
+  Option opt;
+  GetParameter(argc, argv, opt);
 
-	CReference refGenome;
-	CHashTable hashTable;
+  CReference refGenome;
+  CHashTable hashTable;
 
-	if (opt.bIndexExist) {
-		/* (2) Read Reference and Hash Table from index */
-		TIME_INFO(ReadIndexAndRef(opt, &refGenome, &hashTable), "Read reference and hash table");
-	} else {
-		/* (3) Read Reference */
-		TIME_INFO(GetReference(&refGenome, opt), "Encode reference");
-		/* (4) Build Reference Index */
-		TIME_INFO(BuildHashTable(opt, &refGenome, &hashTable), "Build hash table");
-	}
+  if (opt.bIndexExist) {
+    /* (2) Read Reference and Hash Table from index */
+    TIME_INFO(ReadIndexAndRef(opt, &refGenome, &hashTable),
+              "Read reference and hash table");
+  } else {
+    /* (3) Read Reference */
+    TIME_INFO(GetReference(&refGenome, opt), "Encode reference");
+    /* (4) Build Reference Index */
+    TIME_INFO(BuildHashTable(opt, &refGenome, &hashTable), "Build hash table");
+  }
 
-	/* (5) Build Reference Index */
-	TIME_INFO(Matching(opt, &refGenome, &hashTable), "Mapping");
+  /* (5) Build Reference Index */
+  TIME_INFO(Matching(opt, &refGenome, &hashTable), "Mapping");
 
-	/* release memory*/
-	free(refGenome.refInBits);
-	free(hashTable.counter);
-	free(hashTable.index);
-	free(opt.seedStartPos);
+  /* release memory*/
+  free(refGenome.refInBits);
+  free(hashTable.counter);
+  free(hashTable.index);
+  free(opt.seedStartPos);
 
-	return 0;
+  return 0;
 }
